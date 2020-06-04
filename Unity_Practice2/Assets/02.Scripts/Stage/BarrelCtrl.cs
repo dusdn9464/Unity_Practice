@@ -16,6 +16,7 @@ public class BarrelCtrl : MonoBehaviour
 
     public float expRadius = 10.0f;
     public AudioClip expSfx;
+    public Shake shake;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class BarrelCtrl : MonoBehaviour
         meshFilter = GetComponent<MeshFilter>();
         _renderer = GetComponent<MeshRenderer>();
         _audio = GetComponent<AudioSource>();
+        shake = GameObject.Find("CameraRig").GetComponent<Shake>();
         _renderer.material.mainTexture = textures[Random.Range(0, textures.Length)];
     }
 
@@ -49,6 +51,7 @@ public class BarrelCtrl : MonoBehaviour
         int idx = Random.Range(0, meshes.Length);
         meshFilter.sharedMesh = meshes[idx];
         _audio.PlayOneShot(expSfx, 1.0f);
+        StartCoroutine(shake.ShakeCamera(0.1f, 0.2f, 0.5f));
     }
 
     private void IndirectDamage(Vector3 pos)
