@@ -20,7 +20,9 @@ public class EnemyDamage : MonoBehaviour
         if(coll.collider.tag == bulletTag)
         {
             ShowBloodEffect(coll);
-            Destroy(coll.gameObject);
+            //Destroy(coll.gameObject);
+            coll.gameObject.SetActive(false);
+
             hp -= coll.gameObject.GetComponent<BulletCtrl>().damage;
             if(hp<=0.0f)
             {
