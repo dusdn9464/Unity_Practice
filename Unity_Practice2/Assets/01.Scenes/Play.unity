@@ -744,6 +744,84 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 771242468}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &199762023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 199762024}
+  - component: {fileID: 199762026}
+  - component: {fileID: 199762025}
+  m_Layer: 5
+  m_Name: KillCount
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &199762024
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199762023}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 594438832}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 156}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &199762025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199762023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: fae067962e5934395be31c8aba4a3455, type: 3}
+    m_FontSize: 22
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: KILL 0000
+--- !u!222 &199762026
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199762023}
+  m_CullTransparentMesh: 0
 --- !u!1001 &218241460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1666,6 +1744,7 @@ GameObject:
   - component: {fileID: 431702017}
   - component: {fileID: 431702016}
   - component: {fileID: 431702020}
+  - component: {fileID: 431702021}
   m_Layer: 5
   m_Name: ItemHp
   m_TagString: Untagged
@@ -1797,6 +1876,24 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &431702021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431702014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baa20d0affce42a4f925188b6b52100d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData:
+    itemType: 0
+    itemCalc: 0
+    name: HP UP
+    desc: Increase +10 Hp
+    value: 10
 --- !u!1 &463635531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,6 +1908,7 @@ GameObject:
   - component: {fileID: 463635534}
   - component: {fileID: 463635533}
   - component: {fileID: 463635537}
+  - component: {fileID: 463635538}
   m_Layer: 5
   m_Name: itemShock
   m_TagString: Untagged
@@ -1831,7 +1929,7 @@ RectTransform:
   m_Children:
   - {fileID: 930510665}
   m_Father: {fileID: 1669900991}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1942,6 +2040,24 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &463635538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463635531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baa20d0affce42a4f925188b6b52100d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData:
+    itemType: 3
+    itemCalc: 1
+    name: Damage Up
+    desc: Increase 5% Damage
+    value: 0.05
 --- !u!1001 &469243623
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2427,6 +2543,7 @@ RectTransform:
   - {fileID: 1534644914}
   - {fileID: 986307716}
   - {fileID: 1909589723}
+  - {fileID: 199762024}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2904,6 +3021,7 @@ GameObject:
   - component: {fileID: 789413180}
   - component: {fileID: 789413179}
   - component: {fileID: 789413183}
+  - component: {fileID: 789413184}
   m_Layer: 5
   m_Name: ItemSpeed
   m_TagString: Untagged
@@ -3035,6 +3153,24 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &789413184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789413177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baa20d0affce42a4f925188b6b52100d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData:
+    itemType: 1
+    itemCalc: 1
+    name: Speed Up
+    desc: Increase Speed 10%
+    value: 0.1
 --- !u!1 &817336326 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1247052631209106917, guid: 613010186d8fd9548b89e3b86d20d1af,
@@ -3835,6 +3971,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1072008750}
   - component: {fileID: 1072008749}
+  - component: {fileID: 1072008751}
   m_Layer: 0
   m_Name: GameMgr
   m_TagString: Untagged
@@ -3864,6 +4001,8 @@ MonoBehaviour:
   maxPool: 10
   bulletPool: []
   inventoryCG: {fileID: 986307719}
+  killCount: 0
+  killCountTxt: {fileID: 199762025}
 --- !u!4 &1072008750
 Transform:
   m_ObjectHideFlags: 0
@@ -3878,6 +4017,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1072008751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072008748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f6d84c906c7114faab992fe6c0dc5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1109105228
 GameObject:
   m_ObjectHideFlags: 0
@@ -5653,8 +5804,8 @@ RectTransform:
   m_Children:
   - {fileID: 431702015}
   - {fileID: 789413178}
-  - {fileID: 463635532}
   - {fileID: 2086037983}
+  - {fileID: 463635532}
   m_Father: {fileID: 986307716}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7212,6 +7363,7 @@ GameObject:
   - component: {fileID: 2086037985}
   - component: {fileID: 2086037984}
   - component: {fileID: 2086037988}
+  - component: {fileID: 2086037989}
   m_Layer: 5
   m_Name: itemGrenade
   m_TagString: Untagged
@@ -7232,7 +7384,7 @@ RectTransform:
   m_Children:
   - {fileID: 346673676}
   m_Father: {fileID: 1669900991}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7343,6 +7495,24 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &2086037989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086037982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baa20d0affce42a4f925188b6b52100d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData:
+    itemType: 2
+    itemCalc: 0
+    name: Grenade Up
+    desc: Increase +2 Grenade
+    value: 2
 --- !u!224 &2107245486 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8936745483723806590, guid: 6fc9ace0bb3334a479f00eab7661d105,

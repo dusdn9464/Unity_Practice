@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
     public int maxPool = 10;
     public List<GameObject> bulletPool = new List<GameObject>();
     public CanvasGroup inventoryCG;
+    [HideInInspector] public int killCount;
+    public Text killCountTxt;
 
     private void Awake()
     {
@@ -33,7 +36,14 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
+        LoadGameData();
         CreatePooling();
+    }
+
+    private void LoadGameData()
+    {
+        killCount = PlayerPrefs.GetInt("KILL_COUNT", 0);
+        killCountTxt.text = "KILL" + killCount.ToString("0000");
     }
 
 
@@ -124,4 +134,12 @@ public class GameManager : MonoBehaviour
         inventoryCG.interactable = isOpened;
         inventoryCG.blocksRaycasts = isOpened;
     }
+
+    public void IncKillCount()
+    {
+        ++killCount;
+        killCountTxt.text = "KILL" + killCount.ToString("0000");
+        PlayerPrefs.SetInt("KILL_COUNT", killCount);
+    }
+
 }
