@@ -1,5 +1,4 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +10,7 @@ public class GameManager : MonoBehaviour
     public float createTime = 2.0f;
     public int maxEnemy = 10;
     public bool isGameOver = false;
+    bool isPaused;
 
     public static GameManager instance = null;
 
@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject bulletPrefab;
     public int maxPool = 10;
     public List<GameObject> bulletPool = new List<GameObject>();
+    public CanvasGroup inventoryCG;
 
     private void Awake()
     {
@@ -39,6 +40,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        OnInventoryOpen(false);
+
         points = GameObject.Find("SpawnPointGroup").GetComponentsInChildren<Transform>();
 
         if(points.Length > 0)
@@ -47,6 +50,7 @@ public class GameManager : MonoBehaviour
         }
         
     }
+
 
     IEnumerator CreateEnemy()
     {
@@ -97,9 +101,27 @@ public class GameManager : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    
+    public void OnPauseClick()
     {
-        
+        isPaused = !isPaused;
+        Time.timeScale = (isPaused) ? 0.0f : 1.0f;
+        var playerObj = GameObject.FindGameObjectWithTag("PLAYER");
+        var scripts = playerObj.GetComponents<MonoBehaviour>();
+        foreach(var script in scripts)
+        {
+            script.enabled = !isPaused;
+        }
+
+        var canvasGroup = GameObject.Find("Panel - Weapon").GetComponent<CanvasGroup>();
+        canvasGroup.blocksRaycasts = !isPaused;
+
+    }
+
+    public void OnInventoryOpen(bool isOpened)
+    {
+        inventoryCG.alpha = (isOpened) ? 1.0f : 0.0f;
+        inventoryCG.interactable = isOpened;
+        inventoryCG.blocksRaycasts = isOpened;
     }
 }
