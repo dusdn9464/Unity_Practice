@@ -5,7 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using DataInfo;
 
-public class DaaManager : MonoBehaviour
+public class DataManager : MonoBehaviour
 {
     string dataPath;
 

@@ -4001,8 +4001,13 @@ MonoBehaviour:
   maxPool: 10
   bulletPool: []
   inventoryCG: {fileID: 986307719}
-  killCount: 0
   killCountTxt: {fileID: 199762025}
+  gameData: {fileID: 11400000, guid: 517f5afec5ee68144a8368491f677eb6, type: 2}
+  itemObjects:
+  - {fileID: 431702014}
+  - {fileID: 789413177}
+  - {fileID: 2086037982}
+  - {fileID: 463635531}
 --- !u!4 &1072008750
 Transform:
   m_ObjectHideFlags: 0
