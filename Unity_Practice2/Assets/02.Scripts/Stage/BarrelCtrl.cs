@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,8 +26,19 @@ public class BarrelCtrl : MonoBehaviour
         meshFilter = GetComponent<MeshFilter>();
         _renderer = GetComponent<MeshRenderer>();
         _audio = GetComponent<AudioSource>();
+        //shake = GameObject.Find("CameraRig").GetComponent<Shake>();
+        StartCoroutine(GetShake());
+        _renderer.material.mainTexture = textures[UnityEngine.Random.Range(0, textures.Length)];
+    }
+
+    IEnumerator GetShake()
+    {
+        while(!UnityEngine.SceneManagement.SceneManager.GetSceneByName("Play").isLoaded)
+        {
+            yield return null;
+
+        }
         shake = GameObject.Find("CameraRig").GetComponent<Shake>();
-        _renderer.material.mainTexture = textures[Random.Range(0, textures.Length)];
     }
 
     private void OnCollisionEnter(Collision coll)
@@ -48,7 +60,7 @@ public class BarrelCtrl : MonoBehaviour
         //rb.AddForce(Vector3.up * 1000.0f);
         IndirectDamage(transform.position);
 
-        int idx = Random.Range(0, meshes.Length);
+        int idx = UnityEngine.Random.Range(0, meshes.Length);
         meshFilter.sharedMesh = meshes[idx];
         _audio.PlayOneShot(expSfx, 1.0f);
         StartCoroutine(shake.ShakeCamera(0.1f, 0.2f, 0.5f));
